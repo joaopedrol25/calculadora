@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 
-void main(){
+int main(){
 
     int user = 1;
-    float num1, num2, resultado;
+    float num1 = 0, num2 = 0, resultado = 1;
     int operador = 0;
-    int quebra;
+    int quebra = 0;
     printf("Boas vindas à calculadora em C!\n\n\n");
 
         while (user == 1) {
@@ -15,25 +15,17 @@ void main(){
             printf("1- Divisão \n");
             printf("2- Multiplicação \n");
             printf("3- Adição \n");
-            printf("4 - Subtração\n\n");
+            printf("4 - Subtração\n");
+            printf("5 - Exponenciação\n\n");
                     
             printf("Operador que será utilizado: ");
             scanf("%d", &operador);
 
-                    
-                if (operador != 1 && operador != 2 && operador != 3 && operador != 4) {
-
-
-                    while (quebra == 0){
+                    while (operador < 1 || operador > 5){
                         
                         printf("\nVocê digitou um valor indisponível, tente novamente: ");
                         scanf("%d", &operador);
-
-                        if (operador == 1 || operador == 2 || operador == 3 || operador == 4){
-                        quebra = 1;
-                        }
-                    }
-                }
+				}
                     
                 printf("\nDigite o primeiro número: ");
                 scanf("%f", &num1);
@@ -63,6 +55,14 @@ void main(){
                     resultado = num1 - num2;
                     printf("\nO resultado da subtração é %.2f\n", resultado);
                     quebra = 0;
+                    break;
+                    
+                    case 5:
+                    for(int i = 0; i < (int)num2; i++){ 
+						resultado = resultado * num1;
+					}
+                    printf("\nO resultado da exponenciação é %.2f\n", resultado);
+                    quebra = 0;	
                     break;
                 }
         
